@@ -17,6 +17,12 @@ class homeVC: UIViewController {
     var pressed = false
     
     
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var settingsBtn: UIBarButtonItem!
+    @IBOutlet weak var magnifGlasBtn: UIBarButtonItem!
+    @IBOutlet weak var topHalf: UIView!
+    @IBOutlet weak var bottomHalf: UIView!
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var lbl2: UILabel!
     @IBOutlet weak var refreshBtnOutlet: UIButton!
@@ -50,9 +56,18 @@ class homeVC: UIViewController {
         }
         
         actionBtn.layer.cornerRadius = 0.5 * actionBtn.bounds.size.width
+        
         // checking if timer is running
         let timer = defaults.bool(forKey: "isRunning")
         if timer { //if running
+            mainView.backgroundColor = UIColor.blue
+            navigationBar.barTintColor = UIColor.blue
+            settingsBtn.tintColor = UIColor.white
+            magnifGlasBtn.tintColor = UIColor.white
+            topHalf.backgroundColor = UIColor.blue
+            bottomHalf.backgroundColor = UIColor.blue
+            lbl1.textColor = UIColor.white
+            lbl2.textColor = UIColor.white
             refreshBtnOutlet.isHidden = false
             let sleepStartTime = defaults.integer(forKey: "startTime")
             var timeArray = decompress(timeNumber: sleepStartTime)
@@ -73,8 +88,15 @@ class homeVC: UIViewController {
             lbl2.text = "sleeping for: \(timeSleeping[0])h \(timeSleeping[1])min"
             actionBtn.setTitle("End Timer", for: .normal)
             
-            
         } else { //if not running
+            mainView.backgroundColor = UIColor.cyan
+            navigationBar.barTintColor = UIColor.cyan
+            settingsBtn.tintColor = UIColor.black
+            magnifGlasBtn.tintColor = UIColor.black
+            topHalf.backgroundColor = UIColor.cyan
+            bottomHalf.backgroundColor = UIColor.cyan
+            lbl1.textColor = UIColor.black
+            lbl2.textColor = UIColor.black
             refreshBtnOutlet.isHidden = true
             var lastSleep : [Time] = []
             var lastDay : [Days] = []

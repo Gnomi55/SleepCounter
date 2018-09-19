@@ -193,24 +193,29 @@
         <!--HomeVC-->
         <scene sceneID="ahb-hQ-njS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xmp-zK-zGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="S7T-SW-NQB" customClass="homeVC" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ifN-Cy-Vnc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMs-68-uMe">
+                            <navigationBar opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMs-68-uMe">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ion-Mw-561"/>
                                 </constraints>
+                                <color key="tintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.30196078431372547" green="0.40000000000000002" blue="0.95686274509803926" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="SleepCounter" id="Fbt-qo-nXj">
                                         <barButtonItem key="leftBarButtonItem" title="Settings" id="xJX-s9-W46">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <segue destination="hH2-bC-WLl" kind="show" id="P1D-Ra-iaV"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Umt-eW-0fG">
+                                            <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                             <connections>
                                                 <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toTable" id="xKF-MB-ztq"/>
                                             </connections>
@@ -226,21 +231,22 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last sleep: /(lastslp.)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-Pd-VxT">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="41.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sleep /(remaining) for goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Bl-bKX">
                                                 <rect key="frame" x="0.0" y="43.5" width="354" height="41"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E2-7u-fCd">
                                                 <rect key="frame" x="0.0" y="86.5" width="354" height="41.5"/>
-                                                <color key="backgroundColor" red="0.45098039215686275" green="0.83137254901960789" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.24313725490196078" green="0.32156862745098042" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <state key="normal" title="Refresh sleepingtime">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="refreshBtn:" destination="S7T-SW-NQB" eventType="touchUpInside" id="Ekn-KJ-Lsa"/>
@@ -269,17 +275,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFc-3F-Rsp" userLabel="Bottomhalf">
-                                <rect key="frame" x="0.0" y="448" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="448" width="414" height="354"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTK-vh-jgc">
-                                        <rect key="frame" x="70" y="70" width="274" height="274"/>
-                                        <color key="backgroundColor" red="0.29411764705882354" green="0.83921568627450982" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="70" y="40" width="274" height="274"/>
+                                        <color key="backgroundColor" red="0.29411764705882354" green="0.38409598214285712" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JTK-vh-jgc" secondAttribute="height" multiplier="1:1" id="ZjO-i9-qgY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Start Timer">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="btnPressed:" destination="S7T-SW-NQB" eventType="touchUpInside" id="qbD-4P-aD7"/>
@@ -300,7 +306,7 @@
                             <constraint firstItem="bFc-3F-Rsp" firstAttribute="top" secondItem="lfG-ba-C0B" secondAttribute="bottom" id="1qh-DE-vTV"/>
                             <constraint firstItem="bFc-3F-Rsp" firstAttribute="leading" secondItem="B0p-Qj-6D7" secondAttribute="leading" id="4nw-U1-YrO"/>
                             <constraint firstItem="4WU-Ye-T0h" firstAttribute="centerX" secondItem="ifN-Cy-Vnc" secondAttribute="centerX" id="D0F-bA-kAA"/>
-                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="bottom" secondItem="B0p-Qj-6D7" secondAttribute="bottom" id="Ev6-NF-1h9"/>
+                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="bottom" secondItem="B0p-Qj-6D7" secondAttribute="bottom" constant="-60" id="Ev6-NF-1h9"/>
                             <constraint firstAttribute="trailing" secondItem="4WU-Ye-T0h" secondAttribute="trailing" id="JKv-zd-JKg"/>
                             <constraint firstItem="4WU-Ye-T0h" firstAttribute="leading" secondItem="ifN-Cy-Vnc" secondAttribute="leading" id="MtL-qt-yPD"/>
                             <constraint firstItem="bFc-3F-Rsp" firstAttribute="trailing" secondItem="B0p-Qj-6D7" secondAttribute="trailing" id="OcH-XU-a6a"/>
@@ -317,13 +323,18 @@
                     </view>
                     <connections>
                         <outlet property="actionBtn" destination="JTK-vh-jgc" id="Jdx-Xk-Fcj"/>
+                        <outlet property="bottomHalf" destination="bFc-3F-Rsp" id="z3A-Jk-NT3"/>
                         <outlet property="lbl1" destination="6HF-Pd-VxT" id="O1u-6s-6Eo"/>
                         <outlet property="lbl2" destination="Ime-Bl-bKX" id="YTf-Jn-yDA"/>
+                        <outlet property="magnifGlasBtn" destination="Umt-eW-0fG" id="hjd-WG-YeB"/>
+                        <outlet property="mainView" destination="ifN-Cy-Vnc" id="lQd-FL-TEZ"/>
+                        <outlet property="navigationBar" destination="UMs-68-uMe" id="ZY8-s2-4lD"/>
                         <outlet property="refreshBtnOutlet" destination="1E2-7u-fCd" id="VTr-1F-u8g"/>
+                        <outlet property="settingsBtn" destination="xJX-s9-W46" id="1gC-WA-Jed"/>
+                        <outlet property="topHalf" destination="lfG-ba-C0B" id="CKr-BZ-SQZ"/>
                         <segue destination="dCU-qd-uPn" kind="showDetail" identifier="toFinalize" id="iba-vY-bZR"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xmp-zK-zGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="909.60000000000002" y="-174.38423645320196"/>
         </scene>
@@ -484,6 +495,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kuG-B9-X9U"/>
-        <segue reference="qKZ-RH-8Kh"/>
+        <segue reference="5LP-sr-gEK"/>
     </inferredMetricsTieBreakers>
 </document>
