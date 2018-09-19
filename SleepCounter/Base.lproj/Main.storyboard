@@ -20,14 +20,17 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CU-nt-g17">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" red="0.30196078431372547" green="0.40000000000000002" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="Your Sleeptimes" id="XdI-ep-Q6O">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="BYy-cx-DdJ">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="backBtnPressed:" destination="BYZ-38-t0r" id="6tp-jL-Nnc"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XRT-1B-GNW">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <segue destination="9D1-u1-It7" kind="show" id="ADA-5B-xDT"/>
                                             </connections>
@@ -47,16 +50,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0nN-fC-c3G">
-                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                                    <rect key="frame" x="20" y="11" width="768" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Indicator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhy-U8-RnY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="379" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Sleeptime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVZ-kE-oGv">
-                                                            <rect key="frame" x="149" y="0.0" width="139" height="22"/>
+                                                            <rect key="frame" x="389" y="0.0" width="379" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -79,7 +82,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40784313725490196" green="0.51372549019607838" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0CU-nt-g17" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="90S-Ba-wWY"/>
                             <constraint firstItem="EmF-ti-CBG" firstAttribute="top" secondItem="0CU-nt-g17" secondAttribute="bottom" id="GgZ-Tq-DDo"/>
@@ -351,14 +354,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="n0a-v4-SzB"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="Finalise Sleeptime" id="BwR-9T-QnX">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="IGu-xd-dSj">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="cancelBtnPressed:" destination="dCU-qd-uPn" id="F3K-n1-NpH"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="nF9-8m-5kd">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="trashBtnPressed:" destination="dCU-qd-uPn" id="4YC-JS-McK"/>
                                             </connections>
@@ -366,24 +372,28 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-yy-fHL">
-                                <rect key="frame" x="28" y="310.5" width="358" height="275"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-yy-fHL">
+                                <rect key="frame" x="28" y="279.5" width="358" height="337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose getting up time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-Fu-Duu">
                                         <rect key="frame" x="78" y="0.0" width="202.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnY-7k-lqA">
-                                        <rect key="frame" x="19" y="24" width="320" height="216"/>
+                                        <rect key="frame" x="19" y="30" width="320" height="216"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQE-4T-TOe">
-                                        <rect key="frame" x="136.5" y="240" width="85" height="35"/>
-                                        <color key="backgroundColor" red="0.40392156862745099" green="0.83921568627450982" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="136.5" y="252" width="85" height="85"/>
+                                        <color key="backgroundColor" red="0.25098039215686274" green="0.32941176470588235" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kQE-4T-TOe" secondAttribute="height" multiplier="1:1" id="Wad-bj-BUW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="  confirm  ">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="confirmBtnPressed:" destination="dCU-qd-uPn" eventType="touchUpInside" id="3Mr-SH-zAZ"/>
@@ -396,7 +406,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wvc-US-VOX" firstAttribute="trailing" secondItem="9bK-yy-fHL" secondAttribute="trailing" constant="28" id="MnQ-rj-zYt"/>
                             <constraint firstItem="5Td-li-Htj" firstAttribute="trailing" secondItem="wvc-US-VOX" secondAttribute="trailing" id="VUn-SF-L8p"/>
@@ -408,6 +418,7 @@
                         <viewLayoutGuide key="safeArea" id="wvc-US-VOX"/>
                     </view>
                     <connections>
+                        <outlet property="confirmBtn" destination="kQE-4T-TOe" id="eUw-Zl-KuN"/>
                         <outlet property="picker" destination="MnY-7k-lqA" id="n1m-2e-9oK"/>
                         <outlet property="wheel" destination="qPP-eA-Igh" id="o53-w3-t7h"/>
                         <segue destination="S7T-SW-NQB" kind="showDetail" identifier="toHome" id="qKZ-RH-8Kh"/>
@@ -430,6 +441,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3aS-jo-1oF"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="Set sleeptime" id="DZL-ZI-XBw">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wgw-7g-LgT">
@@ -441,7 +453,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KPq-nz-hRs">
-                                <rect key="frame" x="0.0" y="311" width="414" height="274"/>
+                                <rect key="frame" x="0.0" y="287.5" width="414" height="321"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick the offset for the timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwE-RC-b11">
                                         <rect key="frame" x="90" y="0.0" width="234" height="24"/>
@@ -453,11 +465,14 @@
                                         <rect key="frame" x="47" y="24" width="320" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqN-bu-IhV">
-                                        <rect key="frame" x="166.5" y="240" width="81" height="34"/>
-                                        <color key="backgroundColor" red="0.29377731515874494" green="0.83932940582405802" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="166.5" y="240" width="81" height="81"/>
+                                        <color key="backgroundColor" red="0.2627450980392157" green="0.33725490196078434" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="AqN-bu-IhV" secondAttribute="height" multiplier="1:1" id="ukv-W0-Nse"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="  confirm  ">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="confirmBtnPressed:" destination="9D1-u1-It7" eventType="touchUpInside" id="wQJ-pJ-s57"/>
@@ -470,7 +485,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oT3-Dv-vPX" firstAttribute="top" secondItem="hAa-m2-9Xw" secondAttribute="top" id="0Hk-ER-f1w"/>
                             <constraint firstItem="hAa-m2-9Xw" firstAttribute="trailing" secondItem="KPq-nz-hRs" secondAttribute="trailing" id="8eF-4v-mbL"/>
@@ -483,6 +498,7 @@
                         <viewLayoutGuide key="safeArea" id="hAa-m2-9Xw"/>
                     </view>
                     <connections>
+                        <outlet property="confirmBtn" destination="AqN-bu-IhV" id="ZWk-6N-8XK"/>
                         <outlet property="offsetPicker" destination="JAw-jr-1Gp" id="woj-1f-IWP"/>
                         <outlet property="wheel" destination="gUj-FS-wyu" id="AF2-Qq-viy"/>
                         <segue destination="S7T-SW-NQB" kind="showDetail" identifier="toHome" id="5LP-sr-gEK"/>
@@ -494,7 +510,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kuG-B9-X9U"/>
-        <segue reference="5LP-sr-gEK"/>
+        <segue reference="ADA-5B-xDT"/>
+        <segue reference="qKZ-RH-8Kh"/>
     </inferredMetricsTieBreakers>
 </document>

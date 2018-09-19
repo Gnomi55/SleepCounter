@@ -18,12 +18,13 @@ class timerSetupVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     
     @IBOutlet weak var offsetPicker: UIPickerView!
     @IBOutlet weak var wheel: UIActivityIndicatorView!
+    @IBOutlet weak var confirmBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         offsetPicker.delegate = self
         offsetPicker.dataSource = self
+        confirmBtn.layer.cornerRadius = 0.5 * confirmBtn.bounds.size.width
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

@@ -13,6 +13,7 @@ class FinaliseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var wheel: UIActivityIndicatorView!
+    @IBOutlet weak var confirmBtn: UIButton!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults()
@@ -27,6 +28,7 @@ class FinaliseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         super.viewDidLoad()
         picker.delegate = self
         picker.dataSource = self
+        confirmBtn.layer.cornerRadius = 0.5 * confirmBtn.bounds.size.width
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {

@@ -69,6 +69,7 @@ class homeVC: UIViewController {
             lbl1.textColor = UIColor.white
             lbl2.textColor = UIColor.white
             refreshBtnOutlet.isHidden = false
+            refreshBtnOutlet.layer.cornerRadius = 0.02 * refreshBtnOutlet.bounds.size.width
             let sleepStartTime = defaults.integer(forKey: "startTime")
             var timeArray = decompress(timeNumber: sleepStartTime)
             var minuteText = ""
