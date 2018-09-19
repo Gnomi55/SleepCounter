@@ -49,6 +49,7 @@ class homeVC: UIViewController {
             goal = 6
         }
         
+        actionBtn.layer.cornerRadius = 0.5 * actionBtn.bounds.size.width
         // checking if timer is running
         let timer = defaults.bool(forKey: "isRunning")
         if timer { //if running

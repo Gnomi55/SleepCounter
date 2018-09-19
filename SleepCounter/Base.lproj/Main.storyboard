@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S7T-SW-NQB">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,13 +13,13 @@
         <!--Sleep Times-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SleepTimes" customModule="SleepCounter_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SleepTimes" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CU-nt-g17">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Your Sleeptimes" id="XdI-ep-Q6O">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="BYy-cx-DdJ">
@@ -35,27 +36,27 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EmF-ti-CBG">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" id="hfS-HK-PW2" customClass="TimeCell" customModule="SleepCounter_test" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeCell" id="hfS-HK-PW2" customClass="TimeCell" customModule="SleepCounter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hfS-HK-PW2" id="eVQ-hh-mcZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0nN-fC-c3G">
-                                                    <rect key="frame" x="15" y="11" width="345" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="288" height="22"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="Indicator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhy-U8-RnY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="167.66666666666666" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Sleeptime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVZ-kE-oGv">
-                                                            <rect key="frame" x="177.66666666666663" y="0.0" width="167.33333333333337" height="22"/>
+                                                            <rect key="frame" x="149" y="0.0" width="139" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -101,13 +102,13 @@
         <!--SettingsVC-->
         <scene sceneID="K7H-rQ-XcN">
             <objects>
-                <viewController id="hH2-bC-WLl" customClass="SettingsVC" customModule="SleepCounter_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hH2-bC-WLl" customClass="SettingsVC" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OKx-Ow-kBn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fb2-0L-o78">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="BPd-Ws-738"/>
                                 </constraints>
@@ -127,28 +128,28 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Rqd-hx-WXa">
-                                <rect key="frame" x="16" y="391.66666666666669" width="343" height="29"/>
+                                <rect key="frame" x="16" y="433.5" width="382" height="29"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOM-YT-yPJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set sleeping-goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjl-xU-HDG">
-                                                <rect key="frame" x="0.0" y="0.0" width="233.66666666666666" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="272.5" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ghb-yw-s2v">
-                                                <rect key="frame" x="233.66666666666666" y="0.0" width="109.33333333333334" height="29"/>
+                                                <rect key="frame" x="272.5" y="0.0" width="109.5" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOk-w9-oZk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="10.666666666666666" height="29"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="10.5" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="U1S-NI-yGF">
-                                                        <rect key="frame" x="15.666666666666657" y="0.0" width="94" height="29"/>
+                                                        <rect key="frame" x="15.5" y="0.0" width="94" height="29"/>
                                                         <connections>
                                                             <action selector="sleepingGoalChanged:" destination="hH2-bC-WLl" eventType="valueChanged" id="R3v-2e-Pgc"/>
                                                         </connections>
@@ -192,13 +193,13 @@
         <!--HomeVC-->
         <scene sceneID="ahb-hQ-njS">
             <objects>
-                <viewController id="S7T-SW-NQB" customClass="homeVC" customModule="SleepCounter_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S7T-SW-NQB" customClass="homeVC" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ifN-Cy-Vnc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMs-68-uMe">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ion-Mw-561"/>
                                 </constraints>
@@ -217,39 +218,67 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jfc-da-BHM">
-                                <rect key="frame" x="74.333333333333329" y="322" width="226.66666666666669" height="168"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfG-ba-C0B" userLabel="Top half">
+                                <rect key="frame" x="0.0" y="88" width="414" height="360"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last sleep: /(lastslp.)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-Pd-VxT">
-                                        <rect key="frame" x="0.0" y="0.0" width="226.66666666666666" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sleep /(remaining) for goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Bl-bKX">
-                                        <rect key="frame" x="0.0" y="26" width="226.66666666666666" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E2-7u-fCd">
-                                        <rect key="frame" x="0.0" y="52" width="226.66666666666666" height="30"/>
-                                        <color key="backgroundColor" red="0.45098039215686275" green="0.83137254901960789" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Refresh sleepingtime">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="refreshBtn:" destination="S7T-SW-NQB" eventType="touchUpInside" id="Ekn-KJ-Lsa"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="jfc-da-BHM">
+                                        <rect key="frame" x="30" y="116" width="354" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last sleep: /(lastslp.)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-Pd-VxT">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="41.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sleep /(remaining) for goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Bl-bKX">
+                                                <rect key="frame" x="0.0" y="43.5" width="354" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E2-7u-fCd">
+                                                <rect key="frame" x="0.0" y="86.5" width="354" height="41.5"/>
+                                                <color key="backgroundColor" red="0.45098039215686275" green="0.83137254901960789" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Refresh sleepingtime">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="refreshBtn:" destination="S7T-SW-NQB" eventType="touchUpInside" id="Ekn-KJ-Lsa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jfc-da-BHM" secondAttribute="height" multiplier="227:82" id="vHB-rP-Mgl"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jfc-da-BHM" firstAttribute="centerX" secondItem="lfG-ba-C0B" secondAttribute="centerX" id="1zh-ym-QFE"/>
+                                    <constraint firstAttribute="trailing" secondItem="jfc-da-BHM" secondAttribute="trailing" constant="30" id="98f-lk-O7d"/>
+                                    <constraint firstItem="jfc-da-BHM" firstAttribute="centerY" secondItem="lfG-ba-C0B" secondAttribute="centerY" id="AQP-VV-cZb"/>
+                                    <constraint firstItem="jfc-da-BHM" firstAttribute="centerX" secondItem="lfG-ba-C0B" secondAttribute="centerX" id="YLX-KQ-L2L"/>
+                                    <constraint firstItem="jfc-da-BHM" firstAttribute="centerY" secondItem="lfG-ba-C0B" secondAttribute="centerY" id="ZE8-Jj-ldJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4WU-Ye-T0h" userLabel="Divider">
+                                <rect key="frame" x="0.0" y="448" width="414" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="VLR-zF-zZe"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFc-3F-Rsp" userLabel="Bottomhalf">
+                                <rect key="frame" x="0.0" y="448" width="414" height="414"/>
+                                <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTK-vh-jgc">
-                                        <rect key="frame" x="0.0" y="84" width="226.66666666666666" height="84"/>
+                                        <rect key="frame" x="70" y="70" width="274" height="274"/>
                                         <color key="backgroundColor" red="0.29411764705882354" green="0.83921568627450982" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="84" id="Jic-gq-wre"/>
+                                            <constraint firstAttribute="width" secondItem="JTK-vh-jgc" secondAttribute="height" multiplier="1:1" id="ZjO-i9-qgY"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal">
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Start Timer">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -258,14 +287,30 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JTK-vh-jgc" firstAttribute="centerY" secondItem="bFc-3F-Rsp" secondAttribute="centerY" id="2mD-fy-fEe"/>
+                                    <constraint firstItem="JTK-vh-jgc" firstAttribute="centerX" secondItem="bFc-3F-Rsp" secondAttribute="centerX" id="MCx-3e-2gZ"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="JTK-vh-jgc" secondAttribute="trailing" constant="70" id="iPC-gF-JNq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jfc-da-BHM" firstAttribute="centerX" secondItem="ifN-Cy-Vnc" secondAttribute="centerX" id="VpQ-6i-Ta3"/>
+                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="top" secondItem="lfG-ba-C0B" secondAttribute="bottom" id="1qh-DE-vTV"/>
+                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="leading" secondItem="B0p-Qj-6D7" secondAttribute="leading" id="4nw-U1-YrO"/>
+                            <constraint firstItem="4WU-Ye-T0h" firstAttribute="centerX" secondItem="ifN-Cy-Vnc" secondAttribute="centerX" id="D0F-bA-kAA"/>
+                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="bottom" secondItem="B0p-Qj-6D7" secondAttribute="bottom" id="Ev6-NF-1h9"/>
+                            <constraint firstAttribute="trailing" secondItem="4WU-Ye-T0h" secondAttribute="trailing" id="JKv-zd-JKg"/>
+                            <constraint firstItem="4WU-Ye-T0h" firstAttribute="leading" secondItem="ifN-Cy-Vnc" secondAttribute="leading" id="MtL-qt-yPD"/>
+                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="trailing" secondItem="B0p-Qj-6D7" secondAttribute="trailing" id="OcH-XU-a6a"/>
+                            <constraint firstItem="bFc-3F-Rsp" firstAttribute="top" secondItem="4WU-Ye-T0h" secondAttribute="bottom" id="V98-RJ-GRu"/>
+                            <constraint firstItem="lfG-ba-C0B" firstAttribute="top" secondItem="UMs-68-uMe" secondAttribute="bottom" id="g3i-OE-PPz"/>
                             <constraint firstItem="UMs-68-uMe" firstAttribute="trailing" secondItem="B0p-Qj-6D7" secondAttribute="trailing" id="gmx-u7-j5V"/>
+                            <constraint firstItem="4WU-Ye-T0h" firstAttribute="centerY" secondItem="ifN-Cy-Vnc" secondAttribute="centerY" id="lxf-9A-01h"/>
                             <constraint firstItem="UMs-68-uMe" firstAttribute="leading" secondItem="B0p-Qj-6D7" secondAttribute="leading" id="nxT-01-r0K"/>
-                            <constraint firstItem="jfc-da-BHM" firstAttribute="centerY" secondItem="ifN-Cy-Vnc" secondAttribute="centerY" id="twQ-jl-T2l"/>
+                            <constraint firstItem="lfG-ba-C0B" firstAttribute="leading" secondItem="B0p-Qj-6D7" secondAttribute="leading" id="u29-wR-e9M"/>
+                            <constraint firstItem="lfG-ba-C0B" firstAttribute="trailing" secondItem="B0p-Qj-6D7" secondAttribute="trailing" id="uHG-dC-v12"/>
                             <constraint firstItem="UMs-68-uMe" firstAttribute="top" secondItem="B0p-Qj-6D7" secondAttribute="top" id="yls-Ag-xpp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B0p-Qj-6D7"/>
@@ -280,18 +325,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xmp-zK-zGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-174"/>
+            <point key="canvasLocation" x="909.60000000000002" y="-174.38423645320196"/>
         </scene>
         <!--FinaliseVC-->
         <scene sceneID="TWR-Wk-zqm">
             <objects>
-                <viewController id="dCU-qd-uPn" customClass="FinaliseVC" customModule="SleepCounter_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dCU-qd-uPn" customClass="FinaliseVC" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qSo-ZQ-P6f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Td-li-Htj">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="n0a-v4-SzB"/>
                                 </constraints>
@@ -311,19 +356,19 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-yy-fHL">
-                                <rect key="frame" x="28" y="268.66666666666669" width="319" height="275.00000000000006"/>
+                                <rect key="frame" x="28" y="310.5" width="358" height="275"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose getting up time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eT-Fu-Duu">
-                                        <rect key="frame" x="58.333333333333329" y="0.0" width="202.66666666666669" height="24"/>
+                                        <rect key="frame" x="78" y="0.0" width="202.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnY-7k-lqA">
-                                        <rect key="frame" x="0.0" y="24" width="319" height="216"/>
+                                        <rect key="frame" x="19" y="24" width="320" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQE-4T-TOe">
-                                        <rect key="frame" x="117" y="240" width="85" height="35"/>
+                                        <rect key="frame" x="136.5" y="240" width="85" height="35"/>
                                         <color key="backgroundColor" red="0.40392156862745099" green="0.83921568627450982" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="  confirm  ">
@@ -364,13 +409,13 @@
         <!--Timer SetupVC-->
         <scene sceneID="OcO-yH-gWv">
             <objects>
-                <viewController id="9D1-u1-It7" customClass="timerSetupVC" customModule="SleepCounter_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9D1-u1-It7" customClass="timerSetupVC" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u6H-Jf-fXS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-Dv-vPX">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3aS-jo-1oF"/>
                                 </constraints>
@@ -385,19 +430,19 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="KPq-nz-hRs">
-                                <rect key="frame" x="0.0" y="269" width="375" height="274"/>
+                                <rect key="frame" x="0.0" y="311" width="414" height="274"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick the offset for the timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwE-RC-b11">
-                                        <rect key="frame" x="70.666666666666686" y="0.0" width="234" height="24"/>
+                                        <rect key="frame" x="90" y="0.0" width="234" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAw-jr-1Gp">
-                                        <rect key="frame" x="27.666666666666657" y="24" width="320" height="216"/>
+                                        <rect key="frame" x="47" y="24" width="320" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqN-bu-IhV">
-                                        <rect key="frame" x="147" y="240" width="81" height="34"/>
+                                        <rect key="frame" x="166.5" y="240" width="81" height="34"/>
                                         <color key="backgroundColor" red="0.29377731515874494" green="0.83932940582405802" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="  confirm  ">
