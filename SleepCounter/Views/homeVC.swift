@@ -36,9 +36,17 @@ class homeVC: UIViewController {
     @IBAction func btnPressed(_ sender: Any) {
         let timer = defaults.bool(forKey: "isRunning")
         if timer {
-            performSegue(withIdentifier: "toFinalize", sender: nil)
+            let alert = UIAlertController(title: "Stop timer?", message: "Do you want to stop the timer and save the Sleeptime?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in self.checkDates()}))
+            alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         } else {
-            performSegue(withIdentifier: "toTimer", sender: nil)
+            defaults.set(true, forKey: "isRunning")
+            var temp = getCurrentTime()
+            defaults.set(compressor(hour: temp[0], minute: temp[1]), forKey: "startTime")
+            temp = getCurrentDate()
+            defaults.set(dateCompressor(year: temp[0], month: temp[1], day: temp[2]), forKey: "startDate")
+            refreshUI()
         }
     }
     
@@ -80,12 +88,19 @@ class homeVC: UIViewController {
             }
             lbl1.text = "Sleeping since: \(timeArray[0]):\(minuteText)"
             
+            
             let calendar = NSCalendar.current
             let date = Date()
             let hour = calendar.component(.hour, from: date)
             let minute = calendar.component(.minute, from: date)
             print("\(hour):\(minute)")
-            let timeSleeping = calculateTime(startTime: sleepStartTime, endTime: compressor(hour: hour, minute: minute), startDate: calendar.component(.day, from: date))
+            var timeSleeping = calculateTime(startTime: sleepStartTime, endTime: compressor(hour: hour, minute: minute), startDate: calendar.component(.day, from: date))
+            if timeSleeping[0] == 24 {
+                timeSleeping[0] = 0
+            }
+            if timeSleeping[1] == 60 {
+                timeSleeping[1] = 0
+            }
             lbl2.text = "sleeping for: \(timeSleeping[0])h \(timeSleeping[1])min"
             actionBtn.setTitle("End Timer", for: .normal)
             
@@ -175,6 +190,76 @@ class homeVC: UIViewController {
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
     
+    func checkDates() {
+        // MARK: - insert funktion to save time
+        var savedTimes: [Time] = []
+        
+        let request : NSFetchRequest<Time> = Time.fetchRequest()
+        do {
+            savedTimes = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        saveItems()
+        
+        let today = getCurrentDate()
+        
+        if savedTimes.count > 0 {
+        
+            if dateCompressor(year: today[0], month: today[1], day: today[2]) == savedTimes[0].endDate {
+                let alert = UIAlertController(title: "Override Sleeptime", message: "You already have saved one Sleeptime today. Do you want to override it?",  preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Keep old Time", style: .default, handler: { action in self.defaults.set(false, forKey: "isRunning")
+                                                                                                            self.refreshUI()}))
+                alert.addAction(UIAlertAction(title: "Override", style: .destructive, handler: { action in  self.context.delete(savedTimes[0])
+                                                                                                            self.saveItems()
+                                                                                                            self.processTimer()}))
+                alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            } else {
+                processTimer()
+            }
+        } else {
+            processTimer()
+        }
+    }
+    
+    func processTimer() {
+        let newTime = Time(context: context)
+        newTime.beginningDate = Int32(defaults.integer(forKey: "startDate"))
+        newTime.beginningTime = Int16(defaults.integer(forKey: "startTime"))
+        var endDate = getCurrentDate()
+        newTime.endDate = Int32(dateCompressor(year: endDate[0], month: endDate[1], day: endDate[2]))
+        var endTime = getCurrentTime()
+        newTime.endTime = Int16(compressor(hour: endTime[0], minute: endTime[1]))
+        
+        var hour = 0
+        var minute = 0
+        var beginningTimes = decompress(timeNumber: defaults.integer(forKey: "startTime"))
+        
+        hour = endTime[0] - beginningTimes[0]
+        if endTime[0] < beginningTimes[0] {
+            hour += 24
+        }
+        minute = endTime[1] - beginningTimes[1]
+        if endTime[1] < beginningTimes[1] {
+            minute += 60
+            hour -= 1
+        }
+        
+        if endTime[0] == beginningTimes[0] && endTime[1] == beginningTimes[1] {
+            hour = 0
+            minute = 0
+        }
+        
+        newTime.totalSleepTime = Int16(compressor(hour: hour, minute: minute))
+        
+        saveItems()
+        
+        defaults.set(false, forKey: "isRunning")
+        
+        refreshUI()
+    }
+    
     func saveItems() {
         do {
             try context.save()
@@ -207,11 +292,11 @@ class homeVC: UIViewController {
         } else {
             hours = 24 - startTimeArray[0] + endTimeArray[0]
         }
-        if endTimeArray[1] > startTimeArray[1] {
-            minutes = endTimeArray[1] - startTimeArray[1]
-        } else {
+        if endTimeArray[1] < startTimeArray[1] {
             minutes = 60 - startTimeArray[1] + endTimeArray[1]
             hours -= 1
+        } else {
+            minutes = endTimeArray[1] - startTimeArray[1]
         }
         
         if hours < 0 {

@@ -43,49 +43,17 @@ class SleepTimes: UIViewController, UITableViewDelegate, UITableViewDataSource{
             saveItems()
             print(sleepData[0])
         
-            var currentDate = sleepData[0].endDate
-            var dayToUse = 0
-            
             for data in sleepData {
-                var indicatorText = ""
-                var additionalText = ""
+                var temp = decompressDate(comprDate: Int(data.beginningDate))
+                var temp0 = decompressDate(comprDate: Int(data.endDate))
+                let indicatorText = "\(temp[2])/\(temp[1]) - \(temp0[2])/\(temp0[1])"
                 
-                if data.endDate == currentDate {
-                    let textArray = getLblData(data: data)
-                    indicatorText = textArray[0]
-                    additionalText = textArray[1]
-                } else {
-                    let indicatorTextcomponents = decompressDate(comprDate: Int(currentDate))
-                    indicatorText = "\(indicatorTextcomponents[0]).\(indicatorTextcomponents[1]).\(indicatorTextcomponents[2])"
-                    
-                    if dayData[dayToUse].goalReached {
-                        additionalText = "Goal reached!"
-                    } else {
-                        additionalText = "Goal not reached"
-                    }
-                    
-                    tableData.append(Times(indicator: indicatorText, additionalData: additionalText))
-                    dayToUse += 1
-                    currentDate = data.endDate
-                    
-                    let textArray = getLblData(data: data)
-                    indicatorText = textArray[0]
-                    additionalText = textArray[1]
-                }
+                let sleeptime = decompress(timeNumber: Int(data.totalSleepTime))
                 
-                tableData.append(Times(indicator: indicatorText, additionalData: additionalText))
+                let sleepTimeText = "\(sleeptime[0])h \(sleeptime[1])min"
+                
+                tableData.append(Times(indicator: indicatorText, additionalData: sleepTimeText))
             }
-            
-            let lastDateComponents = decompressDate(comprDate: Int(currentDate))
-            let lastDate = "\(lastDateComponents[0]).\(lastDateComponents[1]).\(lastDateComponents[2])"
-            var goalText = ""
-            if dayData[dayToUse].goalReached {
-                goalText = "Goal reached!"
-            } else {
-                goalText = "Goal not reached"
-            }
-            
-            tableData.append(Times(indicator: lastDate, additionalData: goalText))
         }
     }
     
