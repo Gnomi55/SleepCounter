@@ -102,97 +102,6 @@
             </objects>
             <point key="canvasLocation" x="2048" y="-638"/>
         </scene>
-        <!--SettingsVC-->
-        <scene sceneID="K7H-rQ-XcN">
-            <objects>
-                <viewController id="hH2-bC-WLl" customClass="SettingsVC" customModule="SleepCounter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OKx-Ow-kBn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fb2-0L-o78">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="BPd-Ws-738"/>
-                                </constraints>
-                                <items>
-                                    <navigationItem title="Settings" id="IlT-5N-ffS">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="cPN-uB-N7f">
-                                            <connections>
-                                                <action selector="doneBtnPressed:" destination="hH2-bC-WLl" id="aBO-QA-ldx"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5v3-WH-EMK">
-                                            <connections>
-                                                <action selector="saveBtnPressed:" destination="hH2-bC-WLl" id="YtE-lg-Sj6"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Rqd-hx-WXa">
-                                <rect key="frame" x="16" y="433.5" width="382" height="29"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOM-YT-yPJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set sleeping-goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjl-xU-HDG">
-                                                <rect key="frame" x="0.0" y="0.0" width="272.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ghb-yw-s2v">
-                                                <rect key="frame" x="272.5" y="0.0" width="109.5" height="29"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOk-w9-oZk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="10.5" height="29"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="U1S-NI-yGF">
-                                                        <rect key="frame" x="15.5" y="0.0" width="94" height="29"/>
-                                                        <connections>
-                                                            <action selector="sleepingGoalChanged:" destination="hH2-bC-WLl" eventType="valueChanged" id="R3v-2e-Pgc"/>
-                                                        </connections>
-                                                    </stepper>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="109.5" id="05y-35-lRb"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="aOM-YT-yPJ" secondAttribute="trailing" id="I8B-wM-P6b"/>
-                                    <constraint firstItem="aOM-YT-yPJ" firstAttribute="leading" secondItem="Rqd-hx-WXa" secondAttribute="leading" id="hPi-VN-BHN"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="fb2-0L-o78" firstAttribute="leading" secondItem="wJw-xy-tQW" secondAttribute="leading" id="PzV-am-VX5"/>
-                            <constraint firstItem="Rqd-hx-WXa" firstAttribute="leading" secondItem="wJw-xy-tQW" secondAttribute="leading" constant="16" id="Yzt-DG-dXQ"/>
-                            <constraint firstItem="wJw-xy-tQW" firstAttribute="trailing" secondItem="Rqd-hx-WXa" secondAttribute="trailing" constant="16" id="e6i-8F-VNU"/>
-                            <constraint firstItem="fb2-0L-o78" firstAttribute="trailing" secondItem="wJw-xy-tQW" secondAttribute="trailing" id="eKi-Qm-6mC"/>
-                            <constraint firstItem="Rqd-hx-WXa" firstAttribute="centerX" secondItem="OKx-Ow-kBn" secondAttribute="centerX" id="jLz-uO-8tW"/>
-                            <constraint firstItem="fb2-0L-o78" firstAttribute="top" secondItem="wJw-xy-tQW" secondAttribute="top" id="usC-gT-BcB"/>
-                            <constraint firstItem="Rqd-hx-WXa" firstAttribute="centerY" secondItem="OKx-Ow-kBn" secondAttribute="centerY" id="wsL-M3-L2H"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="wJw-xy-tQW"/>
-                    </view>
-                    <connections>
-                        <outlet property="goalLbl" destination="IOk-w9-oZk" id="mhc-wF-E14"/>
-                        <outlet property="stepper" destination="U1S-NI-yGF" id="INF-9X-U2v"/>
-                        <segue destination="S7T-SW-NQB" kind="showDetail" identifier="toHome" id="DUc-pV-Ttf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZgZ-IM-jUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2733" y="-175"/>
-        </scene>
         <!--HomeVC-->
         <scene sceneID="ahb-hQ-njS">
             <objects>
@@ -210,16 +119,16 @@
                                 <color key="barTintColor" red="0.30196078431372547" green="0.40000000000000002" blue="0.95686274509803926" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="SleepCounter" id="Fbt-qo-nXj">
-                                        <barButtonItem key="leftBarButtonItem" title="Settings" id="xJX-s9-W46">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <segue destination="hH2-bC-WLl" kind="show" id="P1D-Ra-iaV"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Umt-eW-0fG">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="Umt-eW-0fG">
                                             <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                             <connections>
                                                 <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toTable" id="xKF-MB-ztq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="c86-t0-4fJ">
+                                            <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            <connections>
+                                                <action selector="refreshBtnPressed:" destination="S7T-SW-NQB" id="ULg-pv-1eK"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -232,28 +141,17 @@
                                         <rect key="frame" x="30" y="116" width="354" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last sleep: /(lastslp.)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HF-Pd-VxT">
-                                                <rect key="frame" x="0.0" y="0.0" width="354" height="41.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="63"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sleep /(remaining) for goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Bl-bKX">
-                                                <rect key="frame" x="0.0" y="43.5" width="354" height="41"/>
+                                                <rect key="frame" x="0.0" y="65" width="354" height="63"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1E2-7u-fCd">
-                                                <rect key="frame" x="0.0" y="86.5" width="354" height="41.5"/>
-                                                <color key="backgroundColor" red="0.24313725490196078" green="0.32156862745098042" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <state key="normal" title="Refresh sleepingtime">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="refreshBtn:" destination="S7T-SW-NQB" eventType="touchUpInside" id="Ekn-KJ-Lsa"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jfc-da-BHM" secondAttribute="height" multiplier="227:82" id="vHB-rP-Mgl"/>
@@ -330,8 +228,6 @@
                         <outlet property="magnifGlasBtn" destination="Umt-eW-0fG" id="hjd-WG-YeB"/>
                         <outlet property="mainView" destination="ifN-Cy-Vnc" id="lQd-FL-TEZ"/>
                         <outlet property="navigationBar" destination="UMs-68-uMe" id="ZY8-s2-4lD"/>
-                        <outlet property="refreshBtnOutlet" destination="1E2-7u-fCd" id="VTr-1F-u8g"/>
-                        <outlet property="settingsBtn" destination="xJX-s9-W46" id="1gC-WA-Jed"/>
                         <outlet property="topHalf" destination="lfG-ba-C0B" id="CKr-BZ-SQZ"/>
                     </connections>
                 </viewController>
@@ -340,7 +236,4 @@
             <point key="canvasLocation" x="909.60000000000002" y="-174.38423645320196"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="sCq-ch-YWO"/>
-    </inferredMetricsTieBreakers>
 </document>

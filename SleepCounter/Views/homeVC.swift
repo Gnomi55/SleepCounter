@@ -19,13 +19,11 @@ class homeVC: UIViewController {
     
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var settingsBtn: UIBarButtonItem!
     @IBOutlet weak var magnifGlasBtn: UIBarButtonItem!
     @IBOutlet weak var topHalf: UIView!
     @IBOutlet weak var bottomHalf: UIView!
     @IBOutlet weak var lbl1: UILabel!
     @IBOutlet weak var lbl2: UILabel!
-    @IBOutlet weak var refreshBtnOutlet: UIButton!
     @IBOutlet weak var actionBtn: UIButton!
     
     override func viewDidLoad() {
@@ -50,18 +48,14 @@ class homeVC: UIViewController {
         }
     }
     
-    @IBAction func refreshBtn(_ sender: Any) {
-        print("refresh pressed")
+    @IBAction func refreshBtnPressed(_ sender: Any) {
         refreshUI()
     }
     
     // MARK: - functions
     
     func refreshUI() {
-        var goal = defaults.integer(forKey: "goal")
-        if goal == 0 {
-            goal = 6
-        }
+        var average = decompress(timeNumber: Int(defaults.integer(forKey: "average")))
         
         actionBtn.layer.cornerRadius = 0.5 * actionBtn.bounds.size.width
         
@@ -70,14 +64,11 @@ class homeVC: UIViewController {
         if timer { //if running
             mainView.backgroundColor = UIColor.blue
             navigationBar.barTintColor = UIColor.blue
-            settingsBtn.tintColor = UIColor.white
             magnifGlasBtn.tintColor = UIColor.white
             topHalf.backgroundColor = UIColor.blue
             bottomHalf.backgroundColor = UIColor.blue
             lbl1.textColor = UIColor.white
             lbl2.textColor = UIColor.white
-            refreshBtnOutlet.isHidden = false
-            refreshBtnOutlet.layer.cornerRadius = 0.02 * refreshBtnOutlet.bounds.size.width
             let sleepStartTime = defaults.integer(forKey: "startTime")
             var timeArray = decompress(timeNumber: sleepStartTime)
             var minuteText = ""
@@ -107,24 +98,15 @@ class homeVC: UIViewController {
         } else { //if not running
             mainView.backgroundColor = UIColor.cyan
             navigationBar.barTintColor = UIColor.cyan
-            settingsBtn.tintColor = UIColor.black
             magnifGlasBtn.tintColor = UIColor.black
             topHalf.backgroundColor = UIColor.cyan
             bottomHalf.backgroundColor = UIColor.cyan
             lbl1.textColor = UIColor.black
             lbl2.textColor = UIColor.black
-            refreshBtnOutlet.isHidden = true
             var lastSleep : [Time] = []
-            var lastDay : [Days] = []
             let request : NSFetchRequest<Time> = Time.fetchRequest()
             do {
                 lastSleep = try context.fetch(request)
-            } catch {
-                print("Error fetching data from context \(error)")
-            }
-            let request1 : NSFetchRequest<Days> = Days.fetchRequest()
-            do {
-                lastDay = try context.fetch(request1)
             } catch {
                 print("Error fetching data from context \(error)")
             }
@@ -137,52 +119,16 @@ class homeVC: UIViewController {
                 
                 lbl1.text = "Last sleep: \(timeArray[0])h, \(timeArray[1])min"
                 
-                let lastDate = decompressDate(comprDate: Int(lastSleep[lastSleep.count - 1].endDate))
-                print(lastDate)
-                let calendar = NSCalendar.current
-                let date = Date()
-                let dateNow = calendar.component(.day, from: date)
                 
-                if lastDay.count > 0 {
-                    let lastDaySleepTime = decompress(timeNumber: Int(lastDay[lastDay.count - 1].totalSleepTime))
-                    
-                    if dateNow == lastDate[0] {
-                        if lastDay[lastDay.count - 1].goalReached{
-                            lbl2.text = "daily goal reached!"
-                        } else {
-                            let hours = goal - lastDaySleepTime[0]
-                            if lastDaySleepTime[1] > 0{
-                                lbl2.text = "sleep \(hours - 1)h and \(60 - lastDaySleepTime[1])min for goal"
-                            } else {
-                                lbl2.text = "sleep \(hours)h for goal"
-                            }
-                        }
-                    } else {
-                        lbl2.text = "sleep \(goal)h for goal"
-                    }
-                }
                 
-                if dateNow == lastDate[0] {
-                    if goal - timeArray[0] < 1 || (goal - timeArray[0] == 1 && timeArray[1] > 0){
-                        lbl2.text = "daily goal reached!"
-                    } else {
-                        let hours = goal - timeArray[0]
-                        if timeArray[1] > 0{
-                            lbl2.text = "sleep \(hours - 1)h and \(60 - timeArray[1])min for goal"
-                        } else {
-                            lbl2.text = "sleep \(hours)h for goal"
-                        }
-                    }
-                } else {
-                    lbl2.text = "sleep \(goal)h for goal"
-                }
+                lbl2.text = "average sleeptime: \(average[0])h \(average[1])min"
                 
                 actionBtn.setTitle("Start Timer", for: .normal)
             } else {
                 lbl1.text = "No Sleeptime found"
                 
                 
-                lbl2.text = "sleep \(goal)h for goal"
+                lbl2.text = ""
                 actionBtn.setTitle("Start Timer", for: .normal)
             }
             
@@ -210,7 +156,8 @@ class homeVC: UIViewController {
                 let alert = UIAlertController(title: "Override Sleeptime", message: "You already have saved one Sleeptime today. Do you want to override it?",  preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Keep old Time", style: .default, handler: { action in self.defaults.set(false, forKey: "isRunning")
                                                                                                             self.refreshUI()}))
-                alert.addAction(UIAlertAction(title: "Override", style: .destructive, handler: { action in  self.context.delete(savedTimes[0])
+                alert.addAction(UIAlertAction(title: "Override", style: .destructive, handler: { action in  self.adjustAverage(lastTime: Int(savedTimes[0].totalSleepTime))
+                                                                                                            self.context.delete(savedTimes[0])
                                                                                                             self.saveItems()
                                                                                                             self.processTimer()}))
                 alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
@@ -253,11 +200,28 @@ class homeVC: UIViewController {
         
         newTime.totalSleepTime = Int16(compressor(hour: hour, minute: minute))
         
+        let average = decompress(timeNumber: Int(defaults.integer(forKey: "average")))
+        
+        let hourAverage = average[0] + 1/2 * (hour - average[0])
+        let minuteAverage = average[1] + 1/2 * (minute - average[1])
+        
+        defaults.set(returnTimeFormat(hour: hourAverage, minute: minuteAverage), forKey: "average")
+        
         saveItems()
         
         defaults.set(false, forKey: "isRunning")
         
         refreshUI()
+    }
+    
+    func adjustAverage(lastTime: Int) {
+        let average = decompress(timeNumber: defaults.integer(forKey: "average"))
+        let lastTimes = decompress(timeNumber: lastTime)
+        
+        let hourAverage = 2 * average[0] - lastTimes[0]
+        let minuteAverage = 2 * average[1] - lastTimes[1]
+        
+        defaults.set(compressor(hour: hourAverage, minute: minuteAverage), forKey: "average")
     }
     
     func saveItems() {
@@ -269,6 +233,25 @@ class homeVC: UIViewController {
     }
     
     // MARK: - handle time
+    
+    func returnTimeFormat(hour: Int, minute: Int) -> Int {
+        var trueHour = hour
+        var trueMinute = minute
+        
+        if minute > 60 {
+            trueHour += 1
+            trueMinute -= 60
+        } else if minute < 0 {
+            trueHour -= 0
+            trueMinute += 60
+        }
+        
+        if trueHour < 0 {
+            trueHour = 0
+        }
+        
+        return compressor(hour: trueHour, minute: trueMinute)
+    }
     
     func decompress(timeNumber: Int) ->[Int]{
         let minute = timeNumber % 100

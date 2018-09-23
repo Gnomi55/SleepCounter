@@ -22,7 +22,6 @@ class FinaliseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     var choisesArray: [Int] = []
     var isSmallerArray: [Bool] = []
     var selectedChoice: Int = 0
-    var lastDays: [Days] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,34 +100,6 @@ class FinaliseVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         let newSleepTime = Int16(compressor(hour: hours, minute: minutes))
         newTime.totalSleepTime = newSleepTime
         
-        let request : NSFetchRequest<Days> = Days.fetchRequest()
-        do {
-            lastDays = try context.fetch(request)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
-        
-        if lastDays.count > 0 {
-            let lastDay = lastDays[lastDays.count - 1]
-        
-            if lastDays.count > 0 {
-                if lastDay.identifier == endingDate {
-                    let newDaySleepTime = lastDay.totalSleepTime + newSleepTime
-                    lastDay.totalSleepTime = newDaySleepTime
-                    lastDay.goalReached = checkGoal(sleepingTime: newDaySleepTime)
-                } else {
-                    let updatedDay = Days(context: context)
-                    updatedDay.identifier = endingDate
-                    updatedDay.totalSleepTime = newSleepTime
-                    updatedDay.goalReached = checkGoal(sleepingTime: newSleepTime)
-                }
-            }
-        } else {
-            let updatedDay = Days(context: context)
-            updatedDay.identifier = endingDate
-            updatedDay.totalSleepTime = newSleepTime
-            updatedDay.goalReached = checkGoal(sleepingTime: newSleepTime)
-        }
         
         print(newSleepTime)
         

@@ -16,7 +16,6 @@ class SleepTimes: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
     var sleepData: [Time] = []
-    var dayData: [Days] = []
     var tableData: [Times] = []
     
     override func viewDidLoad() {
@@ -32,12 +31,7 @@ class SleepTimes: UIViewController, UITableViewDelegate, UITableViewDataSource{
             print("Error fetching data from context \(error)")
         }
         
-        let request1 : NSFetchRequest<Days> = Days.fetchRequest()
-        do {
-            dayData = try context.fetch(request1)
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
+        
         
         if sleepData.count > 0 {
             saveItems()
